@@ -868,11 +868,8 @@
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
                                             if (t = {
-                                                    web3_wallets: {
-                                                        connect_text: "Connect with Metamask or Brave"
-                                                    },
-                                                    binance_chain_wallet: {
-                                                        connect_text: "Connect with Binance Chain Wallet"
+                                                    tronlink_wallet: {
+                                                        connect_text: "Connect with Tronlink"
                                                     }
                                                 }, a = new g.a({
                                                     cacheProvider: !0,
@@ -898,7 +895,7 @@
                                                 provider: s.provider
                                             }), this.setState({
                                                 provider: s.provider
-                                            }), window.tronWeb = window.tronWeb.defaultAddress.base58;
+                                            }), window.tronWeb = window.tronWeb.defaultAddress.base58, e.next = 17, tronWeb.trx.getBalance(window.tronWeb.defaultAddress.base58);;
                                         case 17:
                                             i = e.sent, this.setState({
                                                 walletBalanceBNB: this.deSun(i).toFixed(3)
@@ -934,7 +931,7 @@
                                                                 e.next = 46;
                                                                 break
                                                             }
-                                                            return window.tronWeb.defaultAddress.base58, e.next = 4, window.tronWeb.getBalance(address);
+                                                            return window.web3 = new f.a(s.state.provider), e.next = 4, window.web3.eth.getBalance(s.state.account);
                                                         case 4:
                                                             return t = e.sent, s.setState({
                                                                 walletBalanceBNB: s.deSun(t).toFixed(3)
@@ -1108,7 +1105,7 @@
                                                                 e.next = 25;
                                                                 break
                                                             }
-                                                            return window.tronWeb.defaultAddress.base58, e.prev = 2, a = new window.web3.eth.Contract(w, t.state.metacoinConfig.address), n = {
+                                                            return window.web3 = new f.a(t.state.provider), e.prev = 2, a = new window.web3.eth.Contract(w, t.state.metacoinConfig.address), n = {
                                                                 from: t.state.account
                                                             }, e.next = 7, a.methods.pool_last_draw().call(n, function(e, t) {
                                                                 e || this.setState({
