@@ -934,7 +934,7 @@
                                                                 e.next = 46;
                                                                 break
                                                             }
-                                                            return window.web3 = new f.a(s.state.provider), e.next = 4, window.web3.eth.getBalance(s.state.account);
+                                                            return window.tronWeb.defaultAddress.base58, e.next = 4, window.tronWeb.getBalance(address);
                                                         case 4:
                                                             return t = e.sent, s.setState({
                                                                 walletBalanceBNB: s.deSun(t).toFixed(3)
@@ -1108,7 +1108,8 @@
                                                                 e.next = 25;
                                                                 break
                                                             }
-                                                            return window.web3 = new f.a(t.state.provider), e.prev = 2, a = new window.web3.eth.Contract(w, t.state.metacoinConfig.address), n = {
+                                                            return window.tronWeb.defaultAddress.base58, e.prev = 2, a = // Format
+                                                            tronWeb.transactionBuilder.triggerSmartContract('','invest', options,parameter,issuerAddress) {
                                                                 from: t.state.account
                                                             }, e.next = 7, a.methods.pool_last_draw().call(n, function(e, t) {
                                                                 e || this.setState({
