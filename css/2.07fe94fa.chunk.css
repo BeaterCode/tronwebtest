@@ -1,1 +1,944 @@
-.wallet_provider__wrapper a,.wallet_provider__wrapper a:active,.wallet_provider__wrapper a:hover,.wallet_provider__wrapper a:visited{border:0!important;text-decoration:none!important;outline:0!important}.wallet_provider__wrapper .m__row{display:flex;flex-direction:row;margin:6px;flex-wrap:wrap;width:100%}.wallet_provider__wrapper .m__row .m__col{flex:0 0 50%;max-width:50%;padding:3px}@media(max-width:680px){.wallet_provider__wrapper .m__row{display:block!important}.wallet_provider__wrapper .m__col{width:100%!important;max-width:100%!important;height:auto!important}.wallet_provider__wrapper .provider_item{height:auto!important;padding-top:10px!important;padding-bottom:10px!important}}.wallet_provider__wrapper .flex{display:flex}.wallet_provider__wrapper .flex.flex_column{flex-direction:column}.wallet_provider__wrapper .flex.flex_row{flex-direction:row}.wallet_provider__wrapper .provider_item{display:flex;flex-direction:column;align-items:center;background-color:#f9fafc;border-radius:8px!important;flex-wrap:wrap;justify-content:center;height:240px;cursor:pointer;transition:all .3s linear}.wallet_provider__wrapper .provider_item:hover{background-color:#eeeff2}.wallet_provider__wrapper .provider_item .title{text-transform:capitalize;font-size:24px;margin:10px 4px 4px;color:#747476;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;text-align:center;width:98%}.wallet_provider__wrapper .provider_item .icon{height:70px;width:70px;background-size:contain;background-position:50%;background-repeat:no-repeat}.wallet_provider__wrapper .provider_item .provider_info{font-size:15px;color:#8e8e91;letter-spacing:.2px;margin-top:5px}.wallet_provider__wrapper .provider_item .sub_icon{width:16px;height:16px;background-size:contain;background-position:50%}.wallet_provider__wrapper .provider_item .supported_wallets{line-height:16px;font-size:14px;flex-wrap:nowrap;padding:5px}.wallet_provider__wrapper .provider_item .supported_wallets div{padding:0 4px;white-space:nowrap;margin-top:5px}.wallet_provider__wrapper .provider_item .web3_wallets_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGJhc2VQcm9maWxlPSd0aW55JyBvdmVyZmxvdz0ndmlzaWJsZScgdmlld0JveD0nMCAwIDUxMiA1MTInPjxwYXRoIGZpbGw9JyM0NzU2OGMnIGQ9J00yNTYgNDY2YTE1IDE1IDAgMTEwLTMwYzQ4IDAgOTMtMTkgMTI3LTUzIDYtNiAxNi02IDIxIDBsNDQgNDRjNiA1IDYgMTUgMCAyMXMtMTYgNi0yMSAwbC0zNC0zM2MtMzggMzMtODYgNTEtMTM3IDUxem0xOTUtMTk1YTE1IDE1IDAgMDEtMTUtMTVjMC00OC0xOS05My01My0xMjctNi02LTYtMTYgMC0yMWw0NC00NGM2LTYgMTUtNiAyMSAwczYgMTYgMCAyMWwtMzMgMzRjMzMgMzggNTEgODYgNTEgMTM3YTE1IDE1IDAgMDEtMTUgMTV6Jy8+PGNpcmNsZSBjeD0nNTAnIGN5PSc1MCcgcj0nNTAnIGZpbGw9JyNhNWU4ODcnLz48Y2lyY2xlIGN4PSc0NjInIGN5PSc1MCcgcj0nNTAnIGZpbGw9JyMwMGNjNzYnLz48Y2lyY2xlIGN4PSc1MCcgY3k9JzQ2Micgcj0nNTAnIGZpbGw9JyNhNWU4ODcnLz48Y2lyY2xlIGN4PSc0NjInIGN5PSc0NjInIHI9JzUwJyBmaWxsPScjMDBjYzc2Jy8+PHBhdGggZmlsbD0nIzRiYjllYycgZD0nTTI1NiAxMDZjLTkgMC0yOSAxMy0yOSAxM2wtMjAtNWMtNTQgMTktOTQgNjgtMTAwIDEyNyAwIDAgOCAxMCA4IDE1cy04IDE1LTggMTVjNiA1OSA0NiAxMDggMTAxIDEyN2wxOS0yczE5IDEwIDI5IDEwIDI4LTEwIDI4LTEwbDIwIDJjNTUtMTkgOTUtNjggMTAxLTEyNyAwIDAtMTEtMTAtMTEtMTVzMTEtMTUgMTEtMTVjLTYtNTktNDYtMTA4LTEwMS0xMjdsLTE4IDNzLTE5LTExLTMwLTExeicvPjxwYXRoIGZpbGw9JyMwMDk1ZmYnIGQ9J00zOTUgMjU2YzAtNSAxMC0xNSAxMC0xNS02LTU5LTQ2LTEwOC0xMDAtMTI3bC0xOSAzcy0xOS0xMS0zMC0xMXYzMDBjMTAgMCAyOC0xMCAyOC0xMGwyMCAyYzU1LTE5IDk1LTY4IDEwMS0xMjcgMCAwLTEwLTEwLTEwLTE1eicvPjxwYXRoIGZpbGw9JyNiNWRiZmYnIGQ9J000MDUgMjQxSDI1NnYzMGgxNDlhMTQ4IDE0OCAwIDAwMC0zMHonLz48cGF0aCBmaWxsPScjZDVlOGZlJyBkPSdNMjg0IDE0M2MxMSAzMCAxNyA3MCAxNyAxMTNzLTYgODMtMTcgMTEzYy05IDI2LTIxIDM3LTI4IDM3YTE1MCAxNTAgMCAwMDQ5LThjMTctMzUgMjYtODkgMjYtMTQycy05LTEwNy0yNi0xNDJjLTE2LTUtMzItOC00OS04IDcgMCAxOSAxMSAyOCAzN3onLz48cGF0aCBmaWxsPScjZWRmNWZmJyBkPSdNMjI4IDM2OWMtMTEtMzAtMTctNzAtMTctMTEzczYtODMgMTctMTEzYzktMjYgMjEtMzcgMjgtMzdhMTUwIDE1MCAwIDAwLTQ4IDhjLTE4IDM1LTI3IDg5LTI3IDE0MnM5IDEwNyAyNyAxNDJjMTUgNSAzMSA4IDQ4IDgtNyAwLTE5LTExLTI4LTM3eicvPjwvc3ZnPg==)}.wallet_provider__wrapper .provider_item .torus_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCA2OCA3Mic+PGcgZmlsbD0nIzAzNjRGRicgY2xpcC1wYXRoPSd1cmwoI2NsaXAwKSc+PHBhdGggZD0nTTM5Ljk5IDBIMHYyMS43MWgzOS45OVYweicvPjxwYXRoIGQ9J00zOS45OS4wM0gxOC4yOFY3MmgyMS43MVYuMDN6TTU2LjIyIDIxLjdjNS45OTIgMCAxMC44NS00Ljg1OCAxMC44NS0xMC44NVM2Mi4yMTIgMCA1Ni4yMiAwIDQ1LjM3IDQuODU4IDQ1LjM3IDEwLjg1IDUwLjIyOCAyMS43IDU2LjIyIDIxLjd6Jy8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0nY2xpcDAnPjxwYXRoIGZpbGw9JyNmZmYnIGQ9J00wIDBoNjcuMDd2NzJIMHonLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=)}.wallet_provider__wrapper .provider_item .walletconnect_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGJhc2VQcm9maWxlPSd0aW55JyBvdmVyZmxvdz0ndmlzaWJsZScgdmVyc2lvbj0nMS4yJyB2aWV3Qm94PScwIDAgMzAwIDE4NSc+PHBhdGggZmlsbD0nIzNCOTlGQycgZD0nTTYxIDM2YzQ5LTQ4IDEyOS00OCAxNzggMGw1IDZjMyAyIDMgNiAwIDlsLTIwIDE5Yy0xIDItMyAyLTQgMWwtOC04YTg5IDg5IDAgMDAtMTI0IDBsLTggOGgtNUw1NSA1MWMtMi0yLTItNiAwLThsNi03em0yMTkgNDFsMTggMThjMiAyIDIgNiAwIDhsLTgxIDc5Yy0yIDMtNiAzLTkgMGwtNTctNTZoLTJsLTU4IDU2Yy0yIDMtNiAzLTkgMEwyIDEwM2MtMi0yLTItNiAwLThsMTgtMThjMi0yIDYtMiA5IDBsNTcgNTZoMmw1OC01NmMyLTIgNi0yIDggMGgxbDU3IDU2aDJsNTctNTZjMy0yIDctMiA5IDB6Jy8+PC9zdmc+)}.wallet_provider__wrapper .provider_item .walletlink_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGRhdGEtbmFtZT0nTGF5ZXIgMScgdmlld0JveD0nMCAwIDIxNCAxNzUnPjx0ZXh0IGZpbGw9JyM1ZTJmZmYnIGZvbnQtZmFtaWx5PSdPdmVycGFzcy1Cb2xkLE92ZXJwYXNzJyBmb250LXNpemU9JzcyJyBmb250LXdlaWdodD0nNzAwJyBzdHlsZT0naXNvbGF0aW9uOmlzb2xhdGUnIHRyYW5zZm9ybT0ndHJhbnNsYXRlKDQgNjEpJz48dHNwYW4gbGV0dGVyLXNwYWNpbmc9JzBlbSc+VzwvdHNwYW4+PHRzcGFuIHg9JzU5JyB5PScwJz5hbGw8L3RzcGFuPjx0c3BhbiB4PScxMzgnIHk9JzAnIGxldHRlci1zcGFjaW5nPScwZW0nPmU8L3RzcGFuPjx0c3BhbiB4PScxNzcnIHk9JzAnPnQ8L3RzcGFuPjwvdGV4dD48dGV4dCBmaWxsPScjNWUyZmZmJyBmb250LWZhbWlseT0nT3ZlcnBhc3MtQm9sZCxPdmVycGFzcycgZm9udC1zaXplPSc5NCcgZm9udC13ZWlnaHQ9JzcwMCcgc3R5bGU9J2lzb2xhdGlvbjppc29sYXRlJyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgwIDE0MCknPkxJTks8L3RleHQ+PC9zdmc+)}.wallet_provider__wrapper .provider_item .frame_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2aWV3Qm94PScwIDAgNDgzIDQ4MScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMjYuMzIgNi45N2MtOC4zIDMuMi0xNC42IDkuNi0xNy4zIDE3LjYtLjkgMi41LTEuMiAyOC44LTEuMiA5Ny41djk0LjFsMTIuNSAxMi41IDEyLjUgMTIuNC4yIDkzLjYuMyA5My41IDIuMyA1YzMgNi41IDcuNSAxMS4yIDEzLjcgMTQuMWw1IDIuNGg5M2M4NC41IDAgOTMuMy4xIDk1LjUgMS42IDEuNC45IDcuNyA2LjggMTQgMTMuMWwxMS42IDExLjMgOTQuOS0uMmM5Mi4yLS4zIDk1LjEtLjQgOTktMi4zIDUtMi41IDEwLjUtOCAxMy0xMyAxLjktMy45IDItNi44IDIuMy05OS40bC4yLTk1LjUtMTMtMTMuMS0xMy0xMy4ydi05My4yYzAtMTAyIC4zLTk2LjEtNS45LTEwNC0xLjYtMi01LjMtNS04LjMtNi43bC01LjMtMi45LTE4OC40LTEtMTIuOS0xMi44LTEyLjktMTIuNy05NC40LjFjLTY5LjcgMC05NS4yLjQtOTcuNCAxLjJ6bTMxNy41IDEzMi43YzIgMiAyIDMuMyAyIDEwMXMwIDk5LTIgMTAxLTMuMyAyLTEwMSAyLTk5IDAtMTAxLTItMi0zLjMtMi0xMDEgMC05OSAyLTEwMSAzLjMtMiAxMDEtMiA5OSAwIDEwMSAyeicvPjwvc3ZnPg==)}.wallet_provider__wrapper .provider_item .portis_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMjggMTkyJz48cGF0aCBmaWxsPScjMTMzNDQ0JyBkPSdNOSAxMTRsNC0yIDU1LTIzIDU4IDI1LTIyIDQ2LTU0IDctNDAtNDN6Jy8+PHBhdGggZmlsbD0nI2M0MjM3MCcgZD0nTTExNCA4NmE2MCA2MCAwIDAwLTM4LTIxaC0xYTU1IDU1IDAgMDAtMTQgMGgtMWE2MSA2MSAwIDAwLTM5IDIxbC0yIDQtNCA3LTMgNWExIDEgMCAwMS0xIDBsNyA0IDQyIDI1IDggNFY3N2wtOCAzdi04bDgtNCA4IDQgNDAgMTh6Jy8+PHBhdGggZmlsbD0nIzFjNGQ2YicgZD0nTTEyOCAxMjlhNjUgNjUgMCAwMS0yNCA1MCA2MSA2MSAwIDAxLTE5IDEwIDU1IDU1IDAgMDEtMTcgM2MtMzQgMC02MS0zMC02MS02M2E2MCA2MCAwIDAxMi0xNWw1OSAzNSA1OC0zNWE1MiA1MiAwIDAxMiAxNXonLz48cGF0aCBkPSdNNjEgNjVsNyAzLTggNHYtOHptLTEgMTZsOC00djU5bC04LTV6Jy8+PHBhdGggZmlsbD0nIzFkNDI1OScgZD0nTTY4IDc3djU5bDU2LTM0eicvPjxwYXRoIGZpbGw9JyM0YjZiOWEnIGQ9J002OCA5djY4bDU2IDI1eicvPjxwYXRoIGZpbGw9JyMzNDM1MzUnIGQ9J002OCA3N3Y1OWwtOC01LTQ4LTI5IDctMTIgNDEtMTh2OHonLz48cGF0aCBmaWxsPScjM2U1NTc4JyBkPSdNNjggNzd2NTlsLTgtNS00OC0yOSA0OC0yMXonLz48cGF0aCBmaWxsPScjNmRiMmQ4JyBkPSdNNjggOXY2OGwtNTYgMjV6Jy8+PHBhdGggZmlsbD0nIzMzNWY4YScgZD0nTTQ1IDE4N2wyIDF6bTIgMWEyMCAyMCAwIDAwMyAxem01IDJoMnpNMCAwJy8+PHBhdGggZmlsbD0nIzUyOWJiYScgZD0nTTEwNCAxNzloLTFsLTEgMS0xIDEtMSAxaC0xbC0xIDEtMSAxaC0ybC0xIDEtMSAxaC0xbC0xIDEtMyAxLTMgMWgtMmwtMiAxaC0zbC0xIDFINTlsLTEtMWgtNWwtMi0xaC0xbC0yLTEtMy0xLTEtMWgtMWwtMS0xaC0ybC0xLTEtMS0xLTEtMWgtMWwtMS0xLTEtMS0xLTFoLTJjMTkgOSAyOC0zIDMzLTE1YTY4IDY4IDAgMDA0LTE1IDY5IDY5IDAgMDA0IDE1YzUgMTIgMTQgMjQgMzIgMTV6Jy8+PHBhdGggZmlsbD0nIzMzNWY4YScgZD0nTTgxIDE5MGgyem00LTFsMy0xYTExIDExIDAgMDEtMyAxem0zLTFsMi0xeicvPjxwYXRoIGZpbGw9JyM0YjZiOWEnIGQ9J00xMjggMTI5YTY1IDY1IDAgMDEtMjQgNTBjLTE4IDktMjgtMy0zMi0xNWE2OCA2OCAwIDAxLTQtMTVsNTgtMzVhNjAgNjAgMCAwMTIgMTV6Jy8+PC9zdmc+)}.wallet_provider__wrapper .provider_item .fortmatic_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCAzMDIgMzAyJz48cGF0aCBmaWxsPScjNjg1MUZGJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGQ9J00xNTEgMGgxNTF2NzUuNjA1SDc1LjVWMzAxLjk4SDBWMGgxNTF6bTc1LjUwMiAyMjYuMzk1aC03NS4wNlYxNTEuMjNoMTUwLjUxNnY3Ny44MDlhNzMuMDE1IDczLjAxNSAwIDAxLTIxLjMyNCA1MS41NzZBNzIuODExIDcyLjgxMSAwIDAxMjI5LjE0MyAzMDJoLTIuNjQxdi03NS42MDV6JyBjbGlwLXJ1bGU9J2V2ZW5vZGQnLz48L3N2Zz4=)}.wallet_provider__wrapper .provider_item .binance_chain_wallet_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNTAwLjAxIDI1MDAnPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojZjNiYTJmfTwvc3R5bGU+PC9kZWZzPjxnIGlkPSdMYXllcl8yJyBkYXRhLW5hbWU9J0xheWVyIDInPjxnIGlkPSdMYXllcl8xLTInIGRhdGEtbmFtZT0nTGF5ZXIgMSc+PHBhdGggZD0nTTc2NC40OCAxMDUwLjUyTDEyNTAgNTY1bDQ4NS43NSA0ODUuNzMgMjgyLjUtMjgyLjVMMTI1MCAwIDQ4MiA3NjhsMjgyLjQ5IDI4Mi41TTAgMTI1MGwyODIuNTEtMjgyLjU1TDU2NSAxMjQ5Ljk0bC0yODIuNTEgMjgyLjUxem03NjQuNDggMTk5LjUxTDEyNTAgMTkzNWw0ODUuNzQtNDg1LjcyIDI4Mi42NSAyODIuMzUtLjE0LjE1TDEyNTAgMjUwMGwtNzY4LTc2OC0uNC0uNCAyODIuOTEtMjgyLjEyTTE5MzUgMTI1MC4xMmwyODIuNTEtMjgyLjUxTDI1MDAgMTI1MC4xbC0yODIuNSAyODIuNTF6JyBjbGFzcz0nY2xzLTEnLz48cGF0aCBkPSdNMTUzNi41MiAxMjQ5Ljg1aC4xMkwxMjUwIDk2My4xOSAxMDM4LjEzIDExNzVsLTI0LjM0IDI0LjM1LTUwLjIgNTAuMjEtLjQuMzkuNC40MUwxMjUwIDE1MzYuODFsMjg2LjY2LTI4Ni42Ni4xNC0uMTYtLjI2LS4xNCcgY2xhc3M9J2Nscy0xJy8+PC9nPjwvZz48L3N2Zz4=)}.wallet_provider__wrapper .provider_item .authereum_icon{background-image:url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzODIgNDcyJz48cGF0aCBmaWxsPScjZmY0YzJmJyBkPSdNODAgMTdMMTMgMzkgMCA0M3Y4OGwxIDk5YzQgNDcgMjQgOTAgNTggMTI3IDcgOCAxMjggMTEzIDEzMSAxMTQgMiAxIDEwOC05MCAxMjUtMTA2IDMwLTI5IDU0LTcxIDYyLTExMSA1LTIxIDUtMjkgNS0xMjNWNDJsLTY4LTIxLTY5LTIxIDEzIDI1IDEzIDI0IDE5IDYgMzYgMTIgMTYgNXY4MWMtMSA3OC0xIDgyLTMgOTEtNyAzNC0yMyA2My00NyA4OGExNTYxIDE1NjEgMCAwMS05OCA4NmwtMyAyLTQ2LTQwYy01Ni00OC02NC01Ni03OC03N2ExNzQgMTc0IDAgMDEtMjItNTBjLTUtMTgtNS0yNS01LTEwNVY3MmwxNC00IDM2LTEyIDIxLTcgMTMtMjUgMTItMjQtNTYgMTd6Jy8+PHBhdGggZmlsbD0nI2ZmNGMyZicgZD0nTTE4OCAzbC01NSAxMDctNTUgMTAzIDEgOWMyIDE3IDggMzUgMTkgNTIgMyA2IDQgNyA1IDZsNDQtODMgNDQtODJhODI0OCA4MjQ4IDAgMDA4OCAxNjNjMSAxIDEgMiAzIDAgMTAtMTQgMTktMzYgMjEtNTZsMS0xMC01Ni0xMDZMMTkwIDBsLTIgM3onLz48cGF0aCBmaWxsPScjZmY0YzJmJyBkPSdNMTYzIDI1OGwtMjcgNTUgMTUgMTMgMjggMjQgMTIgMTAgMy0yIDI3LTI0IDI1LTIyLTI4LTU0LTI3LTU1LTI4IDU1eicvPjwvc3ZnPg==)}.wallet_provider__wrapper .provider_item .metamask_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAA2FBMVEUAAAD2hRvpehv2hRvkdhvyghvkdhvjdhvMuKntgBvkdhvidhu4Xxnkdht2PRbIoIPkdhvArZ52PRbYcRt2PRbcdyfcdxp2PRbArZ7kdht2PRbkdhvkdhuVTRd2PRbidhuiVBjArZ52PRb2hRt2PRbkdhvecRrOYhb0gxu/rJ7ufxvObBnZaxh9QRbxgBvrfBvpeRtBPDi1Yx7ddxricxrBZBmxXRifUhiLSBfRvK7ep3pmXVffklRkSzTdei26aiXXcBrWbxqZUBiOSxeKSBeGRhdOMhdAKxfp7GsDAAAAI3RSTlMAgDDfv49QEO/v7+/v39/Pz7+/r6+fn5+Pj4+AcHBwUFAgILtYeZ0AAADGSURBVBjTTZBXlgJBCEUZHZ2cgzkCVZ3bnHPc/458an94fwruoeAAUbNONzxUiIrhayGV5LWfoRC9iwzN5x3IvPg7gREw8iNmjgehnM23nOkzexsBMLnLGzJ3JTG/l29r1PTDq6nKtuMbddjTlT/Yw9ATc8+YiGNjWsz/RClMMdZ63LMWJk2UgYm6HYdby9hBTJTmBKQA5l41sGgMFVijSlRWVbuYHA/zWRAgRmfV579Ht92ejj9Q/4bpJWze+HJdN49jZLMnDIogWiD49ZYAAAAASUVORK5CYII=)}.wallet_provider__wrapper .provider_item .trust_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAUVBMVEUAAAAzdbszdbszdbszdbszdbszdbszdbszdbszdbszdbszdbtmmMzy9vuZut1NhsSzy+bZ5fLM3e7m7ve/1OpAfr+AqdVZj8j///+MsdlzoNAIU6iwAAAAC3RSTlMA3xDvz7+vYDCAQLieikoAAACESURBVBjTZY9REsIwCESxqdZ2Q0iTtFXvf1CBqB92P5jhATsLmaYbVONEXcMVH13u3o/4KRjxubQ1+s5AC3CUynmvXHZgJvWLfSo56QoFBQWupAAEBfUPbI8O2tNA0MLiwK3MFDlbHxlmutjNWqJkfgGYe7AtMTfxYN/ocvTo5+dO778BRU0J8StKOSkAAAAASUVORK5CYII=)}.wallet_provider__wrapper .provider_item .coinbase_wallet_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAV1BMVEUAAAAgWescU+wgVvMdU/IcUfAmX/gfVvMYTO4nYPgXTO0kXPYbUO8nYPgqZPslXfciWfQqZPsjW/UcUvAVSOsnX/gVSOsVSOsnYfodU/IXS+4kW/YgWevbspxkAAAAGHRSTlMAgEAQgO/Pz8+vr1BQQO/v75+fn5+A79+OZPRPAAAAiklEQVQY02WPSRbDIAxDBSEDmccWx7n/OauYvnaRvwDpYy/AzbCMKY3LgEwR05dYWK/Sj+o20dJxmI/cV9WpA+kmxgErT3YzjCtm1RrwznmgVp0hIgFw1+WAwPIUpch/RaTERtvD6Bk3eKHurZeMnGtP0oTQ3HcLoLCUafJnbMbe2Q2/v87zvXuQD/4HDSYMFijfAAAAAElFTkSuQmCC)}.wallet_provider__wrapper .provider_item .argent_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQBAMAAADpKDJvAAAAMFBMVEUAAAD/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1sd7lRyAAAAD3RSTlMAEM8wYEDv36+AIJ+PcL+OTvG4AAAAc0lEQVQI12MAAtPQKAYIeP//J5T1//8PCIPr//9PEBbL////BcAsDiDLAcxaD2QVgFn7gawvIAbrfyD4DlIo/h8ENjAwMOr//5//H2S2EFDgBhBPYAAK/WAECv4BsQoZ7IEsIPHNAGSNIgPv/2SgAf7/DQAw2USKpVmEcAAAAABJRU5ErkJggg==)}.wallet_provider__wrapper .provider_item .rainbow_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABTVBMVEUAHlkAQpwAIWEACh4AQZwAP5gAL3kAKm8AOIkAHVYAM4EALnYAKWwAJGMAOYsAPJAAH1kAGk0API8ALWsAAAAAJloAAAAAImMANIEAJmgAQZsAQZoAHlcAPpQAGUoAG00APpMAOIQACBYAPpYAIWEAJWoAQpwALnkAO5AAOIsAKXAANYbwQyj61AAAMoEAtrUAm68Ae6uARqIbQqEAx56gRponPpqaRZmuRJC9Q4UAQIImTXMALnIVyWQO1GLXPGDaO1og2FTpPDtO3TT5VhKy4Q/8awn/kQH/xAD/qAD/mwAAvLB0R6U7RKQQQp81QJ10QpsLP5k7O5QYPpEAS42cQ4sLNYenP4IAOoAnPX8fMH4ETHwRL3wdLXgAOHAjKGgESmU3K1XdOlIvTU86Qk3cRC/nRiaK4RzGzxHI1g3ooA3d3QX2pwTk3AL/pABatvQ3AAAAI3RSTlPc0/ox+fbY2NbFwMDAv7yjooJ1GRMRA/TY1Lq1r5CMa2heJv2cos4AAADcSURBVBjTPchVe4JgGADQd2DM2blOYJ9K2N0d69ndHf//UlAez+UBi/nl/kJ0ZzBawPwoeT+TaI3wKiU8nm9CJDWAlqjUgoHPr7/TaEBjbc2YdDLk9lsFl3Bli6z3hTyT8P3YeHzQkeWOLZazY5+fpukbUHKdWCqTY0vZhLvOcTJQorDT4Y0v2DIT+kdIBiqEmlXXRzxXzCd/EZKDys6LurwZtpAOdO1yUFOCsCO1KTHBNnULumNEnbHVdt7oUWp4viYF/eFkOhqQmB7edBh5hj3gYML1ChApnnDTAc/RK3xGzSvPAAAAAElFTkSuQmCC)}.wallet_provider__wrapper .provider_item .brave_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAulBMVEUAAADxVCvpSCjhPCbxVSvxVSvgPCbxVivfPCbxVSvgPCboSSjxUSrjPCbxVCvhPCbvRynsPyngPCbfPCbgPCbxUyvhPCbxVSvgPCbxVivfPCb////hPCbxVSvxUyvwTyrmPSf+9PL3nYjwRyrsPyn83df7yL33w7z6v7D5uK/2lHv708r5z8n0tq7yqqDukYXshXf1iG3jSDT6w7z4rqL2q6H4p5X2n5TynpPtkYXtemvza0bkVEHyXjh9kLt/AAAAG3RSTlMA7zDv37+/n5+Pj2BQUBAQ7+/v38+vr4CAICABrmMIAAAAr0lEQVQY0y2PVQLDMAxD0zEzy8nWbuV2hTHd/1oLVH9+tmyLKdWs/fF0qNeY0bppCQWo3tqousu5ExVh+M4zop4EbR6hUkYdCZofG8HdxjMFvi0JGgWAGPABvObaEgAekACptvQ59xB7YQKfqC/BVl4B3AtwJtoxtUQC+/qwJVgw84iIXMDNS+ppMODiFwB+STTUYGQJsXduB6LZmJlsVRadzswsFVhVfbNnMjV+9gcQXBUQsXO9fwAAAABJRU5ErkJggg==)}.wallet_provider__wrapper .provider_item .status_16_icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEUAAABbbe5bbe5bbe5bbe5bbe5bbe7////W2/t6iPHM0fq3v/ittveOm/OEkvJwf/DcYthnAAAABnRSTlMAz79gIO+tFDY8AAAAbklEQVQI12NgYDBKS1NmAALHNCAQYWBgCQMxUh0YGIFU3rQ0AQaztLSc8qq0ZAa1tLTt5eVpSQxpafnlQEYakJHZ0dELZtzo6JgGZgBlvgEZakBGdVpaElD78vJjaUDtjGmZz4BmCsCtgFsKdwYAndQtXIEfsPUAAAAASUVORK5CYII=)}.wallet_provider__wrapper .hide{display:none!important}.wallet_provider__wrapper .spinner_overlay{position:fixed;left:0;top:0;right:0;background-color:hsla(0,0%,100%,.7);display:flex;align-items:center!important;justify-content:center!important;height:100%;width:100%;z-index:10000001}@keyframes spinner{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.wallet_provider__wrapper .spinner:before{content:"";box-sizing:border-box;position:absolute;width:30px;height:30px;border-radius:50%;border:1px solid #ccc;border-top-color:#07d;animation:spinner .6s linear infinite}.wallet_provider__wrapper .no_scroll{overflow:hidden!important}.wallet_provider__wrapper .modal{font-family:-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;display:none;position:fixed;top:0;right:0;bottom:0;left:0;text-align:center;background-color:rgba(0,0,0,.4);transition:all .5s ease;color:#5c5c5e;z-index:10000000}.wallet_provider__wrapper .modal.is_open{display:flex;justify-content:center;align-items:center;opacity:1}.wallet_provider__wrapper .modal.is_open .m__container{animation:zoomIn .5s}.wallet_provider__wrapper .modal.m__closing{animation:zoomOut .8s;opacity:0}.wallet_provider__wrapper .modal .m__container{background-color:#fff;padding:3px;width:1000px;height:500px;max-width:95%;max-height:98%;max-height:98vh;border-radius:8px;overflow-y:hidden;box-sizing:border-box;margin-top:5px}.wallet_provider__wrapper .modal .m__body{overflow-y:scroll;height:500px;max-height:98%;max-height:98vh;padding:10px}.wallet_provider__wrapper .modal .m__header{display:flex;justify-content:space-between;align-items:center;border-radius:8px}.wallet_provider__wrapper .modal .m__header .m__close{font-size:28px;color:#67676a;padding-right:5px}.wallet_provider__wrapper .modal .m__header .m__title{margin-top:0;margin-bottom:0;font-weight:600;font-size:1.25rem;line-height:1.25;color:#67676a;box-sizing:border-box}.wallet_provider__wrapper .modal .m__content{margin-top:2rem;margin-bottom:2rem;line-height:1.5;color:rgba(0,0,0,.8)}@keyframes zoomIn{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}.wallet_provider__wrapper .zoomIn{animation-name:zoomIn}@keyframes zoomOut{0%{opacity:1}50%{opacity:0;transform:scale3d(.3,.3,.3)}to{opacity:0;display:none}}.wallet_provider__wrapper .zoomOut{animation-name:zoomOut}.Toastify__toast-container{z-index:9999;-webkit-transform:translateZ(9999px);position:fixed;padding:4px;width:320px;box-sizing:border-box;color:#fff}.Toastify__toast-container--top-left{top:1em;left:1em}.Toastify__toast-container--top-center{top:1em;left:50%;transform:translateX(-50%)}.Toastify__toast-container--top-right{top:1em;right:1em}.Toastify__toast-container--bottom-left{bottom:1em;left:1em}.Toastify__toast-container--bottom-center{bottom:1em;left:50%;transform:translateX(-50%)}.Toastify__toast-container--bottom-right{bottom:1em;right:1em}@media only screen and (max-width:480px){.Toastify__toast-container{width:100vw;padding:0;left:0;margin:0}.Toastify__toast-container--top-center,.Toastify__toast-container--top-left,.Toastify__toast-container--top-right{top:0;transform:translateX(0)}.Toastify__toast-container--bottom-center,.Toastify__toast-container--bottom-left,.Toastify__toast-container--bottom-right{bottom:0;transform:translateX(0)}.Toastify__toast-container--rtl{right:0;left:auto}}.Toastify__toast{position:relative;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:8px;border-radius:1px;box-shadow:0 1px 10px 0 rgba(0,0,0,.1),0 2px 15px 0 rgba(0,0,0,.05);display:flex;justify-content:space-between;max-height:800px;overflow:hidden;font-family:sans-serif;cursor:pointer;direction:ltr}.Toastify__toast--rtl{direction:rtl}.Toastify__toast--dark{background:#121212;color:#fff}.Toastify__toast--default{background:#fff;color:#aaa}.Toastify__toast--info{background:#3498db}.Toastify__toast--success{background:#07bc0c}.Toastify__toast--warning{background:#f1c40f}.Toastify__toast--error{background:#e74c3c}.Toastify__toast-body{margin:auto 0;flex:1 1 auto}@media only screen and (max-width:480px){.Toastify__toast{margin-bottom:0}}.Toastify__close-button{color:#fff;background:0 0;outline:none;border:none;padding:0;cursor:pointer;opacity:.7;transition:.3s ease;align-self:flex-start}.Toastify__close-button--default{color:#000;opacity:.3}.Toastify__close-button>svg{fill:currentColor;height:16px;width:14px}.Toastify__close-button:focus,.Toastify__close-button:hover{opacity:1}@keyframes Toastify__trackProgress{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Toastify__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:9999;opacity:.7;background-color:hsla(0,0%,100%,.7);transform-origin:left}.Toastify__progress-bar--animated{animation:Toastify__trackProgress linear 1 forwards}.Toastify__progress-bar--controlled{transition:transform .2s}.Toastify__progress-bar--rtl{right:0;left:auto;transform-origin:right}.Toastify__progress-bar--default{background:linear-gradient(90deg,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55)}.Toastify__progress-bar--dark{background:#bb86fc}@keyframes Toastify__bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutRight{20%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(2000px,0,0)}}@keyframes Toastify__bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes Toastify__bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes Toastify__bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes Toastify__bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes Toastify__bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Toastify__bounce-enter--bottom-left,.Toastify__bounce-enter--top-left{animation-name:Toastify__bounceInLeft}.Toastify__bounce-enter--bottom-right,.Toastify__bounce-enter--top-right{animation-name:Toastify__bounceInRight}.Toastify__bounce-enter--top-center{animation-name:Toastify__bounceInDown}.Toastify__bounce-enter--bottom-center{animation-name:Toastify__bounceInUp}.Toastify__bounce-exit--bottom-left,.Toastify__bounce-exit--top-left{animation-name:Toastify__bounceOutLeft}.Toastify__bounce-exit--bottom-right,.Toastify__bounce-exit--top-right{animation-name:Toastify__bounceOutRight}.Toastify__bounce-exit--top-center{animation-name:Toastify__bounceOutUp}.Toastify__bounce-exit--bottom-center{animation-name:Toastify__bounceOutDown}@keyframes Toastify__zoomIn{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes Toastify__zoomOut{0%{opacity:1}50%{opacity:0;transform:scale3d(.3,.3,.3)}to{opacity:0}}.Toastify__zoom-enter{animation-name:Toastify__zoomIn}.Toastify__zoom-exit{animation-name:Toastify__zoomOut}@keyframes Toastify__flipIn{0%{transform:perspective(400px) rotateX(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateX(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateX(10deg);opacity:1}80%{transform:perspective(400px) rotateX(-5deg)}to{transform:perspective(400px)}}@keyframes Toastify__flipOut{0%{transform:perspective(400px)}30%{transform:perspective(400px) rotateX(-20deg);opacity:1}to{transform:perspective(400px) rotateX(90deg);opacity:0}}.Toastify__flip-enter{animation-name:Toastify__flipIn}.Toastify__flip-exit{animation-name:Toastify__flipOut}@keyframes Toastify__slideInRight{0%{transform:translate3d(110%,0,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideInLeft{0%{transform:translate3d(-110%,0,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideInUp{0%{transform:translate3d(0,110%,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideInDown{0%{transform:translate3d(0,-110%,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideOutRight{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(110%,0,0)}}@keyframes Toastify__slideOutLeft{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(-110%,0,0)}}@keyframes Toastify__slideOutDown{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(0,500px,0)}}@keyframes Toastify__slideOutUp{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(0,-500px,0)}}.Toastify__slide-enter--bottom-left,.Toastify__slide-enter--top-left{animation-name:Toastify__slideInLeft}.Toastify__slide-enter--bottom-right,.Toastify__slide-enter--top-right{animation-name:Toastify__slideInRight}.Toastify__slide-enter--top-center{animation-name:Toastify__slideInDown}.Toastify__slide-enter--bottom-center{animation-name:Toastify__slideInUp}.Toastify__slide-exit--bottom-left,.Toastify__slide-exit--top-left{animation-name:Toastify__slideOutLeft}.Toastify__slide-exit--bottom-right,.Toastify__slide-exit--top-right{animation-name:Toastify__slideOutRight}.Toastify__slide-exit--top-center{animation-name:Toastify__slideOutUp}.Toastify__slide-exit--bottom-center{animation-name:Toastify__slideOutDown}
+.wallet_provider__wrapper a,
+.wallet_provider__wrapper a:active,
+.wallet_provider__wrapper a:hover,
+.wallet_provider__wrapper a:visited {
+    border: 0 !important;
+    text-decoration: none !important;
+    outline: 0 !important
+}
+
+.wallet_provider__wrapper .m__row {
+    display: flex;
+    flex-direction: row;
+    margin: 6px;
+    flex-wrap: wrap;
+    width: 100%
+}
+
+.wallet_provider__wrapper .m__row .m__col {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 3px
+}
+
+@media (max-width:680px) {
+    .wallet_provider__wrapper .m__row {
+        display: block !important
+    }
+    .wallet_provider__wrapper .m__col {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important
+    }
+    .wallet_provider__wrapper .provider_item {
+        height: auto !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important
+    }
+}
+
+.wallet_provider__wrapper .flex {
+    display: flex
+}
+
+.wallet_provider__wrapper .flex.flex_column {
+    flex-direction: column
+}
+
+.wallet_provider__wrapper .flex.flex_row {
+    flex-direction: row
+}
+
+.wallet_provider__wrapper .provider_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9fafc;
+    border-radius: 8px !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 240px;
+    cursor: pointer;
+    transition: all .3s linear
+}
+
+.wallet_provider__wrapper .provider_item:hover {
+    background-color: #eeeff2
+}
+
+.wallet_provider__wrapper .provider_item .title {
+    text-transform: capitalize;
+    font-size: 24px;
+    margin: 10px 4px 4px;
+    color: #747476;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center;
+    width: 98%
+}
+
+.wallet_provider__wrapper .provider_item .icon {
+    height: 70px;
+    width: 70px;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat
+}
+
+.wallet_provider__wrapper .provider_item .provider_info {
+    font-size: 15px;
+    color: #8e8e91;
+    letter-spacing: .2px;
+    margin-top: 5px
+}
+
+.wallet_provider__wrapper .provider_item .sub_icon {
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-position: 50%
+}
+
+.wallet_provider__wrapper .provider_item .supported_wallets {
+    line-height: 16px;
+    font-size: 14px;
+    flex-wrap: nowrap;
+    padding: 5px
+}
+
+.wallet_provider__wrapper .provider_item .supported_wallets div {
+    padding: 0 4px;
+    white-space: nowrap;
+    margin-top: 5px
+}
+
+.wallet_provider__wrapper .provider_item .web3_wallets_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' baseProfile='tiny' overflow='visible' viewBox='0 0 512 512'%3E%3Cpath fill='%2347568c' d='M256 466a15 15 0 110-30c48 0 93-19 127-53 6-6 16-6 21 0l44 44c6 5 6 15 0 21s-16 6-21 0l-34-33c-38 33-86 51-137 51zm195-195a15 15 0 01-15-15c0-48-19-93-53-127-6-6-6-16 0-21l44-44c6-6 15-6 21 0s6 16 0 21l-33 34c33 38 51 86 51 137a15 15 0 01-15 15z'/%3E%3Ccircle cx='50' cy='50' r='50' fill='%23a5e887'/%3E%3Ccircle cx='462' cy='50' r='50' fill='%2300cc76'/%3E%3Ccircle cx='50' cy='462' r='50' fill='%23a5e887'/%3E%3Ccircle cx='462' cy='462' r='50' fill='%2300cc76'/%3E%3Cpath fill='%234bb9ec' d='M256 106c-9 0-29 13-29 13l-20-5c-54 19-94 68-100 127 0 0 8 10 8 15s-8 15-8 15c6 59 46 108 101 127l19-2s19 10 29 10 28-10 28-10l20 2c55-19 95-68 101-127 0 0-11-10-11-15s11-15 11-15c-6-59-46-108-101-127l-18 3s-19-11-30-11z'/%3E%3Cpath fill='%230095ff' d='M395 256c0-5 10-15 10-15-6-59-46-108-100-127l-19 3s-19-11-30-11v300c10 0 28-10 28-10l20 2c55-19 95-68 101-127 0 0-10-10-10-15z'/%3E%3Cpath fill='%23b5dbff' d='M405 241H256v30h149a148 148 0 000-30z'/%3E%3Cpath fill='%23d5e8fe' d='M284 143c11 30 17 70 17 113s-6 83-17 113c-9 26-21 37-28 37a150 150 0 0049-8c17-35 26-89 26-142s-9-107-26-142c-16-5-32-8-49-8 7 0 19 11 28 37z'/%3E%3Cpath fill='%23edf5ff' d='M228 369c-11-30-17-70-17-113s6-83 17-113c9-26 21-37 28-37a150 150 0 00-48 8c-18 35-27 89-27 142s9 107 27 142c15 5 31 8 48 8-7 0-19-11-28-37z'/%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .torus_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 68 72'%3E%3Cg fill='%230364FF' clip-path='url(%23clip0)'%3E%3Cpath d='M39.99 0H0v21.71h39.99V0z'/%3E%3Cpath d='M39.99.03H18.28V72h21.71V.03zM56.22 21.7c5.992 0 10.85-4.858 10.85-10.85S62.212 0 56.22 0 45.37 4.858 45.37 10.85 50.228 21.7 56.22 21.7z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Cpath fill='%23fff' d='M0 0h67.07v72H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .walletconnect_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' baseProfile='tiny' overflow='visible' version='1.2' viewBox='0 0 300 185'%3E%3Cpath fill='%233B99FC' d='M61 36c49-48 129-48 178 0l5 6c3 2 3 6 0 9l-20 19c-1 2-3 2-4 1l-8-8a89 89 0 00-124 0l-8 8h-5L55 51c-2-2-2-6 0-8l6-7zm219 41l18 18c2 2 2 6 0 8l-81 79c-2 3-6 3-9 0l-57-56h-2l-58 56c-2 3-6 3-9 0L2 103c-2-2-2-6 0-8l18-18c2-2 6-2 9 0l57 56h2l58-56c2-2 6-2 8 0h1l57 56h2l57-56c3-2 7-2 9 0z'/%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .walletlink_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Layer 1' viewBox='0 0 214 175'%3E%3Ctext fill='%235e2fff' font-family='Overpass-Bold,Overpass' font-size='72' font-weight='700' style='isolation:isolate' transform='translate(4 61)'%3E%3Ctspan letter-spacing='0em'%3EW%3C/tspan%3E%3Ctspan x='59' y='0'%3Eall%3C/tspan%3E%3Ctspan x='138' y='0' letter-spacing='0em'%3Ee%3C/tspan%3E%3Ctspan x='177' y='0'%3Et%3C/tspan%3E%3C/text%3E%3Ctext fill='%235e2fff' font-family='Overpass-Bold,Overpass' font-size='94' font-weight='700' style='isolation:isolate' transform='translate(0 140)'%3ELINK%3C/text%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .frame_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 483 481' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.32 6.97c-8.3 3.2-14.6 9.6-17.3 17.6-.9 2.5-1.2 28.8-1.2 97.5v94.1l12.5 12.5 12.5 12.4.2 93.6.3 93.5 2.3 5c3 6.5 7.5 11.2 13.7 14.1l5 2.4h93c84.5 0 93.3.1 95.5 1.6 1.4.9 7.7 6.8 14 13.1l11.6 11.3 94.9-.2c92.2-.3 95.1-.4 99-2.3 5-2.5 10.5-8 13-13 1.9-3.9 2-6.8 2.3-99.4l.2-95.5-13-13.1-13-13.2v-93.2c0-102 .3-96.1-5.9-104-1.6-2-5.3-5-8.3-6.7l-5.3-2.9-188.4-1-12.9-12.8-12.9-12.7-94.4.1c-69.7 0-95.2.4-97.4 1.2zm317.5 132.7c2 2 2 3.3 2 101s0 99-2 101-3.3 2-101 2-99 0-101-2-2-3.3-2-101 0-99 2-101 3.3-2 101-2 99 0 101 2z'/%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .portis_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 192'%3E%3Cpath fill='%23133444' d='M9 114l4-2 55-23 58 25-22 46-54 7-40-43z'/%3E%3Cpath fill='%23c42370' d='M114 86a60 60 0 00-38-21h-1a55 55 0 00-14 0h-1a61 61 0 00-39 21l-2 4-4 7-3 5a1 1 0 01-1 0l7 4 42 25 8 4V77l-8 3v-8l8-4 8 4 40 18z'/%3E%3Cpath fill='%231c4d6b' d='M128 129a65 65 0 01-24 50 61 61 0 01-19 10 55 55 0 01-17 3c-34 0-61-30-61-63a60 60 0 012-15l59 35 58-35a52 52 0 012 15z'/%3E%3Cpath d='M61 65l7 3-8 4v-8zm-1 16l8-4v59l-8-5z'/%3E%3Cpath fill='%231d4259' d='M68 77v59l56-34z'/%3E%3Cpath fill='%234b6b9a' d='M68 9v68l56 25z'/%3E%3Cpath fill='%23343535' d='M68 77v59l-8-5-48-29 7-12 41-18v8z'/%3E%3Cpath fill='%233e5578' d='M68 77v59l-8-5-48-29 48-21z'/%3E%3Cpath fill='%236db2d8' d='M68 9v68l-56 25z'/%3E%3Cpath fill='%23335f8a' d='M45 187l2 1zm2 1a20 20 0 003 1zm5 2h2zM0 0'/%3E%3Cpath fill='%23529bba' d='M104 179h-1l-1 1-1 1-1 1h-1l-1 1-1 1h-2l-1 1-1 1h-1l-1 1-3 1-3 1h-2l-2 1h-3l-1 1H59l-1-1h-5l-2-1h-1l-2-1-3-1-1-1h-1l-1-1h-2l-1-1-1-1-1-1h-1l-1-1-1-1-1-1h-2c19 9 28-3 33-15a68 68 0 004-15 69 69 0 004 15c5 12 14 24 32 15z'/%3E%3Cpath fill='%23335f8a' d='M81 190h2zm4-1l3-1a11 11 0 01-3 1zm3-1l2-1z'/%3E%3Cpath fill='%234b6b9a' d='M128 129a65 65 0 01-24 50c-18 9-28-3-32-15a68 68 0 01-4-15l58-35a60 60 0 012 15z'/%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .fortmatic_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 302 302'%3E%3Cpath fill='%236851FF' fill-rule='evenodd' d='M151 0h151v75.605H75.5V301.98H0V0h151zm75.502 226.395h-75.06V151.23h150.516v77.809a73.015 73.015 0 01-21.324 51.576A72.811 72.811 0 01229.143 302h-2.641v-75.605z' clip-rule='evenodd'/%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .binance_chain_wallet_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2500.01 2500'%3E%3Cdefs%3E%3Cstyle%3E.cls-1{fill:%23f3ba2f}%3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath d='M764.48 1050.52L1250 565l485.75 485.73 282.5-282.5L1250 0 482 768l282.49 282.5M0 1250l282.51-282.55L565 1249.94l-282.51 282.51zm764.48 199.51L1250 1935l485.74-485.72 282.65 282.35-.14.15L1250 2500l-768-768-.4-.4 282.91-282.12M1935 1250.12l282.51-282.51L2500 1250.1l-282.5 282.51z' class='cls-1'/%3E%3Cpath d='M1536.52 1249.85h.12L1250 963.19 1038.13 1175l-24.34 24.35-50.2 50.21-.4.39.4.41L1250 1536.81l286.66-286.66.14-.16-.26-.14' class='cls-1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .authereum_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 382 472'%3E%3Cpath fill='%23ff4c2f' d='M80 17L13 39 0 43v88l1 99c4 47 24 90 58 127 7 8 128 113 131 114 2 1 108-90 125-106 30-29 54-71 62-111 5-21 5-29 5-123V42l-68-21-69-21 13 25 13 24 19 6 36 12 16 5v81c-1 78-1 82-3 91-7 34-23 63-47 88a1561 1561 0 01-98 86l-3 2-46-40c-56-48-64-56-78-77a174 174 0 01-22-50c-5-18-5-25-5-105V72l14-4 36-12 21-7 13-25 12-24-56 17z'/%3E%3Cpath fill='%23ff4c2f' d='M188 3l-55 107-55 103 1 9c2 17 8 35 19 52 3 6 4 7 5 6l44-83 44-82a8248 8248 0 0088 163c1 1 1 2 3 0 10-14 19-36 21-56l1-10-56-106L190 0l-2 3z'/%3E%3Cpath fill='%23ff4c2f' d='M163 258l-27 55 15 13 28 24 12 10 3-2 27-24 25-22-28-54-27-55-28 55z'/%3E%3C/svg%3E")
+}
+
+.wallet_provider__wrapper .provider_item .metamask_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAA2FBMVEUAAAD2hRvpehv2hRvkdhvyghvkdhvjdhvMuKntgBvkdhvidhu4Xxnkdht2PRbIoIPkdhvArZ52PRbYcRt2PRbcdyfcdxp2PRbArZ7kdht2PRbkdhvkdhuVTRd2PRbidhuiVBjArZ52PRb2hRt2PRbkdhvecRrOYhb0gxu/rJ7ufxvObBnZaxh9QRbxgBvrfBvpeRtBPDi1Yx7ddxricxrBZBmxXRifUhiLSBfRvK7ep3pmXVffklRkSzTdei26aiXXcBrWbxqZUBiOSxeKSBeGRhdOMhdAKxfp7GsDAAAAI3RSTlMAgDDfv49QEO/v7+/v39/Pz7+/r6+fn5+Pj4+AcHBwUFAgILtYeZ0AAADGSURBVBjTTZBXlgJBCEUZHZ2cgzkCVZ3bnHPc/458an94fwruoeAAUbNONzxUiIrhayGV5LWfoRC9iwzN5x3IvPg7gREw8iNmjgehnM23nOkzexsBMLnLGzJ3JTG/l29r1PTDq6nKtuMbddjTlT/Yw9ATc8+YiGNjWsz/RClMMdZ63LMWJk2UgYm6HYdby9hBTJTmBKQA5l41sGgMFVijSlRWVbuYHA/zWRAgRmfV579Ht92ejj9Q/4bpJWze+HJdN49jZLMnDIogWiD49ZYAAAAASUVORK5CYII=")
+}
+
+.wallet_provider__wrapper .provider_item .trust_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAUVBMVEUAAAAzdbszdbszdbszdbszdbszdbszdbszdbszdbszdbszdbtmmMzy9vuZut1NhsSzy+bZ5fLM3e7m7ve/1OpAfr+AqdVZj8j///+MsdlzoNAIU6iwAAAAC3RSTlMA3xDvz7+vYDCAQLieikoAAACESURBVBjTZY9REsIwCESxqdZ2Q0iTtFXvf1CBqB92P5jhATsLmaYbVONEXcMVH13u3o/4KRjxubQ1+s5AC3CUynmvXHZgJvWLfSo56QoFBQWupAAEBfUPbI8O2tNA0MLiwK3MFDlbHxlmutjNWqJkfgGYe7AtMTfxYN/ocvTo5+dO778BRU0J8StKOSkAAAAASUVORK5CYII=")
+}
+
+.wallet_provider__wrapper .provider_item .coinbase_wallet_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAV1BMVEUAAAAgWescU+wgVvMdU/IcUfAmX/gfVvMYTO4nYPgXTO0kXPYbUO8nYPgqZPslXfciWfQqZPsjW/UcUvAVSOsnX/gVSOsVSOsnYfodU/IXS+4kW/YgWevbspxkAAAAGHRSTlMAgEAQgO/Pz8+vr1BQQO/v75+fn5+A79+OZPRPAAAAiklEQVQY02WPSRbDIAxDBSEDmccWx7n/OauYvnaRvwDpYy/AzbCMKY3LgEwR05dYWK/Sj+o20dJxmI/cV9WpA+kmxgErT3YzjCtm1RrwznmgVp0hIgFw1+WAwPIUpch/RaTERtvD6Bk3eKHurZeMnGtP0oTQ3HcLoLCUafJnbMbe2Q2/v87zvXuQD/4HDSYMFijfAAAAAElFTkSuQmCC")
+}
+
+.wallet_provider__wrapper .provider_item .argent_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQBAMAAADpKDJvAAAAMFBMVEUAAAD/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1v/h1sd7lRyAAAAD3RSTlMAEM8wYEDv36+AIJ+PcL+OTvG4AAAAc0lEQVQI12MAAtPQKAYIeP//J5T1//8PCIPr//9PEBbL////BcAsDiDLAcxaD2QVgFn7gawvIAbrfyD4DlIo/h8ENjAwMOr//5//H2S2EFDgBhBPYAAK/WAECv4BsQoZ7IEsIPHNAGSNIgPv/2SgAf7/DQAw2USKpVmEcAAAAABJRU5ErkJggg==")
+}
+
+.wallet_provider__wrapper .provider_item .rainbow_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABTVBMVEUAHlkAQpwAIWEACh4AQZwAP5gAL3kAKm8AOIkAHVYAM4EALnYAKWwAJGMAOYsAPJAAH1kAGk0API8ALWsAAAAAJloAAAAAImMANIEAJmgAQZsAQZoAHlcAPpQAGUoAG00APpMAOIQACBYAPpYAIWEAJWoAQpwALnkAO5AAOIsAKXAANYbwQyj61AAAMoEAtrUAm68Ae6uARqIbQqEAx56gRponPpqaRZmuRJC9Q4UAQIImTXMALnIVyWQO1GLXPGDaO1og2FTpPDtO3TT5VhKy4Q/8awn/kQH/xAD/qAD/mwAAvLB0R6U7RKQQQp81QJ10QpsLP5k7O5QYPpEAS42cQ4sLNYenP4IAOoAnPX8fMH4ETHwRL3wdLXgAOHAjKGgESmU3K1XdOlIvTU86Qk3cRC/nRiaK4RzGzxHI1g3ooA3d3QX2pwTk3AL/pABatvQ3AAAAI3RSTlPc0/ox+fbY2NbFwMDAv7yjooJ1GRMRA/TY1Lq1r5CMa2heJv2cos4AAADcSURBVBjTPchVe4JgGADQd2DM2blOYJ9K2N0d69ndHf//UlAez+UBi/nl/kJ0ZzBawPwoeT+TaI3wKiU8nm9CJDWAlqjUgoHPr7/TaEBjbc2YdDLk9lsFl3Bli6z3hTyT8P3YeHzQkeWOLZazY5+fpukbUHKdWCqTY0vZhLvOcTJQorDT4Y0v2DIT+kdIBiqEmlXXRzxXzCd/EZKDys6LurwZtpAOdO1yUFOCsCO1KTHBNnULumNEnbHVdt7oUWp4viYF/eFkOhqQmB7edBh5hj3gYML1ChApnnDTAc/RK3xGzSvPAAAAAElFTkSuQmCC")
+}
+
+.wallet_provider__wrapper .provider_item .brave_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAulBMVEUAAADxVCvpSCjhPCbxVSvxVSvgPCbxVivfPCbxVSvgPCboSSjxUSrjPCbxVCvhPCbvRynsPyngPCbfPCbgPCbxUyvhPCbxVSvgPCbxVivfPCb////hPCbxVSvxUyvwTyrmPSf+9PL3nYjwRyrsPyn83df7yL33w7z6v7D5uK/2lHv708r5z8n0tq7yqqDukYXshXf1iG3jSDT6w7z4rqL2q6H4p5X2n5TynpPtkYXtemvza0bkVEHyXjh9kLt/AAAAG3RSTlMA7zDv37+/n5+Pj2BQUBAQ7+/v38+vr4CAICABrmMIAAAAr0lEQVQY0y2PVQLDMAxD0zEzy8nWbuV2hTHd/1oLVH9+tmyLKdWs/fF0qNeY0bppCQWo3tqousu5ExVh+M4zop4EbR6hUkYdCZofG8HdxjMFvi0JGgWAGPABvObaEgAekACptvQ59xB7YQKfqC/BVl4B3AtwJtoxtUQC+/qwJVgw84iIXMDNS+ppMODiFwB+STTUYGQJsXduB6LZmJlsVRadzswsFVhVfbNnMjV+9gcQXBUQsXO9fwAAAABJRU5ErkJggg==")
+}
+
+.wallet_provider__wrapper .provider_item .status_16_icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEUAAABbbe5bbe5bbe5bbe5bbe5bbe7////W2/t6iPHM0fq3v/ittveOm/OEkvJwf/DcYthnAAAABnRSTlMAz79gIO+tFDY8AAAAbklEQVQI12NgYDBKS1NmAALHNCAQYWBgCQMxUh0YGIFU3rQ0AQaztLSc8qq0ZAa1tLTt5eVpSQxpafnlQEYakJHZ0dELZtzo6JgGZgBlvgEZakBGdVpaElD78vJjaUDtjGmZz4BmCsCtgFsKdwYAndQtXIEfsPUAAAAASUVORK5CYII=")
+}
+
+.wallet_provider__wrapper .hide {
+    display: none !important
+}
+
+.wallet_provider__wrapper .spinner_overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-color: hsla(0, 0%, 100%, .7);
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100%;
+    width: 100%;
+    z-index: 10000001
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+.wallet_provider__wrapper .spinner:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    border-top-color: #07d;
+    animation: spinner .6s linear infinite
+}
+
+.wallet_provider__wrapper .no_scroll {
+    overflow: hidden !important
+}
+
+.wallet_provider__wrapper .modal {
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .4);
+    transition: all .5s ease;
+    color: #5c5c5e;
+    z-index: 10000000
+}
+
+.wallet_provider__wrapper .modal.is_open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1
+}
+
+.wallet_provider__wrapper .modal.is_open .m__container {
+    animation: zoomIn .5s
+}
+
+.wallet_provider__wrapper .modal.m__closing {
+    animation: zoomOut .8s;
+    opacity: 0
+}
+
+.wallet_provider__wrapper .modal .m__container {
+    background-color: #fff;
+    padding: 3px;
+    width: 1000px;
+    height: 500px;
+    max-width: 95%;
+    max-height: 98%;
+    max-height: 98vh;
+    border-radius: 8px;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    margin-top: 5px
+}
+
+.wallet_provider__wrapper .modal .m__body {
+    overflow-y: scroll;
+    height: 500px;
+    max-height: 98%;
+    max-height: 98vh;
+    padding: 10px
+}
+
+.wallet_provider__wrapper .modal .m__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px
+}
+
+.wallet_provider__wrapper .modal .m__header .m__close {
+    font-size: 28px;
+    color: #67676a;
+    padding-right: 5px
+}
+
+.wallet_provider__wrapper .modal .m__header .m__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: #67676a;
+    box-sizing: border-box
+}
+
+.wallet_provider__wrapper .modal .m__content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .8)
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.wallet_provider__wrapper .zoomIn {
+    animation-name: zoomIn
+}
+
+@keyframes zoomOut {
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+    to {
+        opacity: 0;
+        display: none
+    }
+}
+
+.wallet_provider__wrapper .zoomOut {
+    animation-name: zoomOut
+}
+
+.Toastify__toast-container {
+    z-index: 9999;
+    -webkit-transform: translateZ(9999px);
+    position: fixed;
+    padding: 4px;
+    width: 320px;
+    box-sizing: border-box;
+    color: #fff
+}
+
+.Toastify__toast-container--top-left {
+    top: 1em;
+    left: 1em
+}
+
+.Toastify__toast-container--top-center {
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.Toastify__toast-container--top-right {
+    top: 1em;
+    right: 1em
+}
+
+.Toastify__toast-container--bottom-left {
+    bottom: 1em;
+    left: 1em
+}
+
+.Toastify__toast-container--bottom-center {
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.Toastify__toast-container--bottom-right {
+    bottom: 1em;
+    right: 1em
+}
+
+@media only screen and (max-width:480px) {
+    .Toastify__toast-container {
+        width: 100vw;
+        padding: 0;
+        left: 0;
+        margin: 0
+    }
+    .Toastify__toast-container--top-center,
+    .Toastify__toast-container--top-left,
+    .Toastify__toast-container--top-right {
+        top: 0;
+        transform: translateX(0)
+    }
+    .Toastify__toast-container--bottom-center,
+    .Toastify__toast-container--bottom-left,
+    .Toastify__toast-container--bottom-right {
+        bottom: 0;
+        transform: translateX(0)
+    }
+    .Toastify__toast-container--rtl {
+        right: 0;
+        left: auto
+    }
+}
+
+.Toastify__toast {
+    position: relative;
+    min-height: 64px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    padding: 8px;
+    border-radius: 1px;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .1), 0 2px 15px 0 rgba(0, 0, 0, .05);
+    display: flex;
+    justify-content: space-between;
+    max-height: 800px;
+    overflow: hidden;
+    font-family: sans-serif;
+    cursor: pointer;
+    direction: ltr
+}
+
+.Toastify__toast--rtl {
+    direction: rtl
+}
+
+.Toastify__toast--dark {
+    background: #121212;
+    color: #fff
+}
+
+.Toastify__toast--default {
+    background: #fff;
+    color: #aaa
+}
+
+.Toastify__toast--info {
+    background: #3498db
+}
+
+.Toastify__toast--success {
+    background: #07bc0c
+}
+
+.Toastify__toast--warning {
+    background: #f1c40f
+}
+
+.Toastify__toast--error {
+    background: #e74c3c
+}
+
+.Toastify__toast-body {
+    margin: auto 0;
+    flex: 1 1 auto
+}
+
+@media only screen and (max-width:480px) {
+    .Toastify__toast {
+        margin-bottom: 0
+    }
+}
+
+.Toastify__close-button {
+    color: #fff;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: .7;
+    transition: .3s ease;
+    align-self: flex-start
+}
+
+.Toastify__close-button--default {
+    color: #000;
+    opacity: .3
+}
+
+.Toastify__close-button>svg {
+    fill: currentColor;
+    height: 16px;
+    width: 14px
+}
+
+.Toastify__close-button:focus,
+.Toastify__close-button:hover {
+    opacity: 1
+}
+
+@keyframes Toastify__trackProgress {
+    0% {
+        transform: scaleX(1)
+    }
+    to {
+        transform: scaleX(0)
+    }
+}
+
+.Toastify__progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    z-index: 9999;
+    opacity: .7;
+    background-color: hsla(0, 0%, 100%, .7);
+    transform-origin: left
+}
+
+.Toastify__progress-bar--animated {
+    animation: Toastify__trackProgress linear 1 forwards
+}
+
+.Toastify__progress-bar--controlled {
+    transition: transform .2s
+}
+
+.Toastify__progress-bar--rtl {
+    right: 0;
+    left: auto;
+    transform-origin: right
+}
+
+.Toastify__progress-bar--default {
+    background: linear-gradient(90deg, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55)
+}
+
+.Toastify__progress-bar--dark {
+    background: #bb86fc
+}
+
+@keyframes Toastify__bounceInRight {
+    0%,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1)
+    }
+    0% {
+        opacity: 0;
+        transform: translate3d(3000px, 0, 0)
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0)
+    }
+    75% {
+        transform: translate3d(10px, 0, 0)
+    }
+    90% {
+        transform: translate3d(-5px, 0, 0)
+    }
+    to {
+        transform: none
+    }
+}
+
+@keyframes Toastify__bounceOutRight {
+    20% {
+        opacity: 1;
+        transform: translate3d(-20px, 0, 0)
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(2000px, 0, 0)
+    }
+}
+
+@keyframes Toastify__bounceInLeft {
+    0%,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1)
+    }
+    0% {
+        opacity: 0;
+        transform: translate3d(-3000px, 0, 0)
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(25px, 0, 0)
+    }
+    75% {
+        transform: translate3d(-10px, 0, 0)
+    }
+    90% {
+        transform: translate3d(5px, 0, 0)
+    }
+    to {
+        transform: none
+    }
+}
+
+@keyframes Toastify__bounceOutLeft {
+    20% {
+        opacity: 1;
+        transform: translate3d(20px, 0, 0)
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(-2000px, 0, 0)
+    }
+}
+
+@keyframes Toastify__bounceInUp {
+    0%,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1)
+    }
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 3000px, 0)
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(0, -20px, 0)
+    }
+    75% {
+        transform: translate3d(0, 10px, 0)
+    }
+    90% {
+        transform: translate3d(0, -5px, 0)
+    }
+    to {
+        transform: translateZ(0)
+    }
+}
+
+@keyframes Toastify__bounceOutUp {
+    20% {
+        transform: translate3d(0, -10px, 0)
+    }
+    40%,
+    45% {
+        opacity: 1;
+        transform: translate3d(0, 20px, 0)
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, -2000px, 0)
+    }
+}
+
+@keyframes Toastify__bounceInDown {
+    0%,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1)
+    }
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -3000px, 0)
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(0, 25px, 0)
+    }
+    75% {
+        transform: translate3d(0, -10px, 0)
+    }
+    90% {
+        transform: translate3d(0, 5px, 0)
+    }
+    to {
+        transform: none
+    }
+}
+
+@keyframes Toastify__bounceOutDown {
+    20% {
+        transform: translate3d(0, 10px, 0)
+    }
+    40%,
+    45% {
+        opacity: 1;
+        transform: translate3d(0, -20px, 0)
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, 2000px, 0)
+    }
+}
+
+.Toastify__bounce-enter--bottom-left,
+.Toastify__bounce-enter--top-left {
+    animation-name: Toastify__bounceInLeft
+}
+
+.Toastify__bounce-enter--bottom-right,
+.Toastify__bounce-enter--top-right {
+    animation-name: Toastify__bounceInRight
+}
+
+.Toastify__bounce-enter--top-center {
+    animation-name: Toastify__bounceInDown
+}
+
+.Toastify__bounce-enter--bottom-center {
+    animation-name: Toastify__bounceInUp
+}
+
+.Toastify__bounce-exit--bottom-left,
+.Toastify__bounce-exit--top-left {
+    animation-name: Toastify__bounceOutLeft
+}
+
+.Toastify__bounce-exit--bottom-right,
+.Toastify__bounce-exit--top-right {
+    animation-name: Toastify__bounceOutRight
+}
+
+.Toastify__bounce-exit--top-center {
+    animation-name: Toastify__bounceOutUp
+}
+
+.Toastify__bounce-exit--bottom-center {
+    animation-name: Toastify__bounceOutDown
+}
+
+@keyframes Toastify__zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes Toastify__zoomOut {
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+    to {
+        opacity: 0
+    }
+}
+
+.Toastify__zoom-enter {
+    animation-name: Toastify__zoomIn
+}
+
+.Toastify__zoom-exit {
+    animation-name: Toastify__zoomOut
+}
+
+@keyframes Toastify__flipIn {
+    0% {
+        transform: perspective(400px) rotateX(90deg);
+        animation-timing-function: ease-in;
+        opacity: 0
+    }
+    40% {
+        transform: perspective(400px) rotateX(-20deg);
+        animation-timing-function: ease-in
+    }
+    60% {
+        transform: perspective(400px) rotateX(10deg);
+        opacity: 1
+    }
+    80% {
+        transform: perspective(400px) rotateX(-5deg)
+    }
+    to {
+        transform: perspective(400px)
+    }
+}
+
+@keyframes Toastify__flipOut {
+    0% {
+        transform: perspective(400px)
+    }
+    30% {
+        transform: perspective(400px) rotateX(-20deg);
+        opacity: 1
+    }
+    to {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0
+    }
+}
+
+.Toastify__flip-enter {
+    animation-name: Toastify__flipIn
+}
+
+.Toastify__flip-exit {
+    animation-name: Toastify__flipOut
+}
+
+@keyframes Toastify__slideInRight {
+    0% {
+        transform: translate3d(110%, 0, 0);
+        visibility: visible
+    }
+    to {
+        transform: translateZ(0)
+    }
+}
+
+@keyframes Toastify__slideInLeft {
+    0% {
+        transform: translate3d(-110%, 0, 0);
+        visibility: visible
+    }
+    to {
+        transform: translateZ(0)
+    }
+}
+
+@keyframes Toastify__slideInUp {
+    0% {
+        transform: translate3d(0, 110%, 0);
+        visibility: visible
+    }
+    to {
+        transform: translateZ(0)
+    }
+}
+
+@keyframes Toastify__slideInDown {
+    0% {
+        transform: translate3d(0, -110%, 0);
+        visibility: visible
+    }
+    to {
+        transform: translateZ(0)
+    }
+}
+
+@keyframes Toastify__slideOutRight {
+    0% {
+        transform: translateZ(0)
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(110%, 0, 0)
+    }
+}
+
+@keyframes Toastify__slideOutLeft {
+    0% {
+        transform: translateZ(0)
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(-110%, 0, 0)
+    }
+}
+
+@keyframes Toastify__slideOutDown {
+    0% {
+        transform: translateZ(0)
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(0, 500px, 0)
+    }
+}
+
+@keyframes Toastify__slideOutUp {
+    0% {
+        transform: translateZ(0)
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(0, -500px, 0)
+    }
+}
+
+.Toastify__slide-enter--bottom-left,
+.Toastify__slide-enter--top-left {
+    animation-name: Toastify__slideInLeft
+}
+
+.Toastify__slide-enter--bottom-right,
+.Toastify__slide-enter--top-right {
+    animation-name: Toastify__slideInRight
+}
+
+.Toastify__slide-enter--top-center {
+    animation-name: Toastify__slideInDown
+}
+
+.Toastify__slide-enter--bottom-center {
+    animation-name: Toastify__slideInUp
+}
+
+.Toastify__slide-exit--bottom-left,
+.Toastify__slide-exit--top-left {
+    animation-name: Toastify__slideOutLeft
+}
+
+.Toastify__slide-exit--bottom-right,
+.Toastify__slide-exit--top-right {
+    animation-name: Toastify__slideOutRight
+}
+
+.Toastify__slide-exit--top-center {
+    animation-name: Toastify__slideOutUp
+}
+
+.Toastify__slide-exit--bottom-center {
+    animation-name: Toastify__slideOutDown
+}
+
+/*# sourceMappingURL=2.07fe94fa.chunk.css.map */
+
+/*
+     FILE ARCHIVED ON 07:11:20 Apr 08, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:52:21 Jun 29, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+
+/*
+playback timings (ms):
+  esindex: 0.029
+  PetaboxLoader3.datanode: 326.118 (4)
+  exclusion.robots: 0.409
+  exclusion.robots.policy: 0.384
+  captures_list: 442.979
+  CDXLines.iter: 47.334 (3)
+  load_resource: 252.393
+  PetaboxLoader3.resolve: 59.157
+  RedisCDXSource: 149.006
+  LoadShardBlock: 238.409 (3)
+*/
