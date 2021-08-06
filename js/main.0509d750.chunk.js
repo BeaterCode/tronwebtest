@@ -898,7 +898,7 @@
                                                 provider: s.provider
                                             }), this.setState({
                                                 provider: s.provider
-                                            }), window.web3 = new f.a(this.state.provider), e.next = 17, window.web3.eth.getBalance(this.state.account);
+                                            }), window.tronWeb = window.tronWeb.defaultAddress.base58;
                                         case 17:
                                             i = e.sent, this.setState({
                                                 walletBalanceBNB: this.deSun(i).toFixed(3)
