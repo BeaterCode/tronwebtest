@@ -82,8 +82,8 @@
                 "./WalletConnectProvider.js": 144,
                 "./WalletLinkProvider": 145,
                 "./WalletLinkProvider.js": 145,
-                "./Web3Standard": 45,
-                "./Web3Standard.js": 45,
+                "./tronWebStandard": 45,
+                "./tronWebStandard.js": 45,
                 "./_PlatformWallets": 44,
                 "./_PlatformWallets.js": 44
             };
@@ -868,7 +868,7 @@
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
                                             if (t = {
-                                                    web3_wallets: {
+                                                    tronWeb_wallets: {
                                                         connect_text: "Connect with Metamask or Brave"
                                                     },
                                                     binance_chain_wallet: {
@@ -898,7 +898,7 @@
                                                 provider: s.provider
                                             }), this.setState({
                                                 provider: s.provider
-                                            }), window.web3 = new f.a(this.state.provider), e.next = 17, window.web3.eth.getBalance(this.state.account);
+                                            }), window.tronWeb = new f.a(this.state.provider), e.next = 17, window.tronWeb.eth.getBalance(this.state.account);
                                         case 17:
                                             i = e.sent, this.setState({
                                                 walletBalanceBNB: this.deSun(i).toFixed(3)
@@ -934,13 +934,13 @@
                                                                 e.next = 46;
                                                                 break
                                                             }
-                                                            return window.web3 = new f.a(s.state.provider), e.next = 4, window.web3.eth.getBalance(s.state.account);
+                                                            return window.tronWeb = new f.a(s.state.provider), e.next = 4, window.tronWeb.eth.getBalance(s.state.account);
                                                         case 4:
                                                             return t = e.sent, s.setState({
                                                                 walletBalanceBNB: s.deSun(t).toFixed(3)
                                                             }), s.setState({
                                                                 walletBalanceUSD: (s.deSun(t).toFixed(3) * s.state.BNBPrice).toFixed(2)
-                                                            }), e.prev = 7, a = new window.web3.eth.Contract(w, s.state.metacoinConfig.address), n = {
+                                                            }), e.prev = 7, a = new window.tronWeb.eth.Contract(w, s.state.metacoinConfig.address), n = {
                                                                 from: s.state.account
                                                             }, e.next = 12, a.methods.totalInvestments().call(n, function(e, t) {
                                                                 e || (this.setState({
@@ -1108,7 +1108,7 @@
                                                                 e.next = 25;
                                                                 break
                                                             }
-                                                            return window.web3 = new f.a(t.state.provider), e.prev = 2, a = new window.web3.eth.Contract(w, t.state.metacoinConfig.address), n = {
+                                                            return window.tronWeb = new f.a(t.state.provider), e.prev = 2, a = new window.tronWeb.eth.Contract(w, t.state.metacoinConfig.address), n = {
                                                                 from: t.state.account
                                                             }, e.next = 7, a.methods.pool_last_draw().call(n, function(e, t) {
                                                                 e || this.setState({
@@ -1174,11 +1174,11 @@
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
                                             if (this.state.provider && this.state.account) try {
-                                                window.web3 = new f.a(this.state.provider), a = {
+                                                window.tronWeb = new f.a(this.state.provider), a = {
                                                     from: this.state.account,
                                                     value: 1e18 * t,
                                                     gasPrice: this.state.gasPrice
-                                                }, new window.web3.eth.Contract(w, this.state.metacoinConfig.address).methods.invest(this.state.ref).send(a, function(e, t) {
+                                                }, new window.tronWeb.eth.Contract(w, this.state.metacoinConfig.address).methods.invest(this.state.ref).send(a, function(e, t) {
                                                     e ? y.b.error("Failed: " + e.message) : y.b.success("Success")
                                                 }.bind(this))
                                             } catch (n) {
@@ -1203,11 +1203,11 @@
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
                                             if (this.state.provider && this.state.account) try {
-                                                window.web3 = new f.a(this.state.provider), t = {
+                                                window.tronWeb = new f.a(this.state.provider), t = {
                                                     from: this.state.account,
                                                     value: 0,
                                                     gasPrice: this.state.gasPrice
-                                                }, new window.web3.eth.Contract(w, this.state.metacoinConfig.address).methods.reinvest().send(t, function(e, t) {
+                                                }, new window.tronWeb.eth.Contract(w, this.state.metacoinConfig.address).methods.reinvest().send(t, function(e, t) {
                                                     e ? y.b.error("Failed: " + e.message) : y.b.success("Success")
                                                 }.bind(this))
                                             } catch (a) {
@@ -1232,11 +1232,11 @@
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
                                             if (this.state.provider && this.state.account) try {
-                                                window.web3 = new f.a(this.state.provider), t = {
+                                                window.tronWeb = new f.a(this.state.provider), t = {
                                                     from: this.state.account,
                                                     value: 0,
                                                     gasPrice: this.state.gasPrice
-                                                }, new window.web3.eth.Contract(w, this.state.metacoinConfig.address).methods.withdraw().send(t, function(e, t) {
+                                                }, new window.tronWeb.eth.Contract(w, this.state.metacoinConfig.address).methods.withdraw().send(t, function(e, t) {
                                                     e ? y.b.error("Failed: " + e.message) : y.b.success("Success")
                                                 }.bind(this))
                                             } catch (a) {
