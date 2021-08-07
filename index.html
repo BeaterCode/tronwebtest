@@ -19,7 +19,7 @@
     <hr>
     <button onclick="doCoseTron()">Test Call</button>
     <script>
-        function CoseTron(){
+        function doCoseTron(){
             if(window.tronWeb && window.tronWeb.defaultAddress.base58){
                 let contract = await tronWeb.contract.at('TQ72H3d2tLsWpQW1H98sYKCaJJMLEk5EpA'); 
                 let result = await instance["invest"](0, 0).call();
