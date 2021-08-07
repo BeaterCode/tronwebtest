@@ -868,8 +868,11 @@
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
                                             if (t = {
-                                                    tronlink_wallet: {
-                                                        connect_text: "Connect with Tronlink"
+                                                    web3_wallets: {
+                                                        connect_text: "Connect with Metamask or Brave"
+                                                    },
+                                                    binance_chain_wallet: {
+                                                        connect_text: "Connect with Binance Chain Wallet"
                                                     }
                                                 }, a = new g.a({
                                                     cacheProvider: !0,
@@ -895,7 +898,7 @@
                                                 provider: s.provider
                                             }), this.setState({
                                                 provider: s.provider
-                                            }), window.tronWeb = window.tronWeb.defaultAddress.base58, e.next = 17, tronWeb.trx.getBalance(window.tronWeb.defaultAddress.base58);;
+                                            }), window.web3 = new f.a(this.state.provider), e.next = 17, window.web3.eth.getBalance(this.state.account);
                                         case 17:
                                             i = e.sent, this.setState({
                                                 walletBalanceBNB: this.deSun(i).toFixed(3)
