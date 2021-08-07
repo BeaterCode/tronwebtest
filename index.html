@@ -8,22 +8,20 @@
     </head>
     <body>
     <button onclick="gettronweb()">Can you get tronweb from tronlink?</button>
+    <br><hr>
+    <button onclick="dostuff()">Test Call</button>
     <script>
-        function gettronweb(){
+        function dostuff(){
             if(window.tronWeb && window.tronWeb.defaultAddress.base58){
-                document.append("Yes, catch it:",window.tronWeb.defaultAddress.base58)
+                let contract = await tronWeb.contract.at('TQ72H3d2tLsWpQW1H98sYKCaJJMLEk5EpA')
+                let result = await instance["invest"](0, 0).call()
+                alert("Result ---> :",result)
             }
         }
-    </script>
-    <br>
-    <hr>
-    <button onclick="doCoseTron()">Test Call</button>
-    <script>
-        function doCoseTron(){
+
+        function gettronweb(){
             if(window.tronWeb && window.tronWeb.defaultAddress.base58){
-                let contract = await tronWeb.contract.at('TQ72H3d2tLsWpQW1H98sYKCaJJMLEk5EpA'); 
-                let result = await instance["invest"](0, 0).call();
-                document.write("Result ---> :",result)
+                alert("Yes, catch it:",window.tronWeb.defaultAddress.base58)
             }
         }
     </script>
